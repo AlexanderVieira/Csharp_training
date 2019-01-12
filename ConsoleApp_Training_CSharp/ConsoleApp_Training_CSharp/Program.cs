@@ -17,6 +17,29 @@ namespace ConsoleApp_Training_CSharp {
 			Console.WriteLine($"Variable object: {BasicTypes.obj1}");
 			Console.WriteLine($"Variable object: {BasicTypes.obj2}");
 			Console.WriteLine("-------------------------------");
+
+			Console.WriteLine("Minimum value: {0}", int.MinValue);
+			Console.WriteLine("Maximum value: {0}", int.MaxValue);
+			Console.WriteLine("Minimum value: {0}", long.MinValue);
+			Console.WriteLine("Maximum value: {0}", long.MaxValue);
+			Console.WriteLine("Minimum value: {0}", float.MinValue);
+			Console.WriteLine("Maximum value: {0}", float.MaxValue);
+			Console.WriteLine("Minimum value: {0}", double.MinValue);
+			Console.WriteLine("Maximum value: {0}", double.MaxValue);
+			Console.WriteLine("Minimum value: {0}", decimal.MinValue);
+			Console.WriteLine("Maximum value: {0}", decimal.MaxValue);
+			Console.WriteLine("-----------------------------------------");
+
+			Console.WriteLine("Implicit casting and casting: ");
+			double a = 15.5;
+			float b = (float)a;
+			Console.WriteLine("Casting: {0}", b);
+			Console.WriteLine("-----------------------------------------");
+
+			int x = 5;
+			int y = 2;
+			double result = (double)x / y;
+			Console.WriteLine("casting to double between two integer types: {0} ", result);
 		}
 	}
 }
