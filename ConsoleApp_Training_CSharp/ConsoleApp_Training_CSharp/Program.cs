@@ -39,7 +39,10 @@ namespace ConsoleApp_Training_CSharp {
 			int x = 5;
 			int y = 2;
 			double result = (double)x / y;
-			Console.WriteLine("casting to double between two integer types: {0} ", result);
+			Console.WriteLine("casting to double between two integer types: {0} \n", result);
+
+			Console.WriteLine("-----------------------------------------" + "\n");
+			VariableManager.ImprimirExemploVariaveis();
 		}
 	}
 }
