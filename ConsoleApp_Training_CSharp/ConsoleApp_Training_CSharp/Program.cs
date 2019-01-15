@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace ConsoleApp_Training_CSharp {
 	class Program {
@@ -48,8 +49,24 @@ namespace ConsoleApp_Training_CSharp {
 			Calculator.QuadraticEquation();
 			Console.WriteLine("-----------------------------------------" + "\n");
 
-			Calculator.larger();
+			Calculator.Larger();
 			Console.WriteLine("-----------------------------------------" + "\n");
+
+			double circ = Calculator.Circunferencia(5);
+			double volumeCirc = Calculator.Volume(5);
+			Console.WriteLine("Comprimento da circunferência: " + circ.ToString("F2"));
+			Console.WriteLine("Volume da circunferência: " + volumeCirc.ToString("F3"));
+			Console.WriteLine("-----------------------------------------" + "\n");
+
+			Triangulo t1 = new Triangulo();
+			t1.Area(out double area1, 3, 4, 5);
+			Console.WriteLine($"Area de um triangulo qualquer: {area1}");
+			Console.WriteLine("-----------------------------------------" + "\n");
+
+			Triangulo t2 = new Triangulo();
+			t2.Area(out double area2, 10, 10, 5);
+			Console.WriteLine($"Area de um triangulo qualquer: {area2.ToString("F2", CultureInfo.InvariantCulture)}");
+			Console.WriteLine("-----------------------------------------" + "\n");			
 		}
 	}
 }
