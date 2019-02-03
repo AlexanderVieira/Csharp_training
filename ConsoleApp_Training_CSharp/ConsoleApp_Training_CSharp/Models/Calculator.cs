@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp_Training_CSharp {
-	public static class Calculator {
+namespace ConsoleApp_Training_CSharp.Models
+{
+    public static class Calculator {
 
 		public static double Pi = 3.14;
 		public static void QuadraticEquation() {

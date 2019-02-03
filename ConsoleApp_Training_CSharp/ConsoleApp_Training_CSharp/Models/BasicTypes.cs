@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp_Training_CSharp {
+namespace ConsoleApp_Training_CSharp.Models {
 	public static class BasicTypes {
 		public static bool complete = false;
 		public static char gender = 'F';

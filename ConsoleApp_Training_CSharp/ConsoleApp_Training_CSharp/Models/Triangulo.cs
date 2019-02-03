@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp_Training_CSharp {
-	public class Triangulo {
+namespace ConsoleApp_Training_CSharp.Models
+{
+    public class Triangulo {
 		public double A;
 		public double B;
 		public double C;

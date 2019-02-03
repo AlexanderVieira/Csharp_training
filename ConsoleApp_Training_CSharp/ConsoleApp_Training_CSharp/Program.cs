@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp_Training_CSharp.Models;
+using System;
 using System.Globalization;
 
 namespace ConsoleApp_Training_CSharp {
@@ -19,16 +20,16 @@ namespace ConsoleApp_Training_CSharp {
 			Console.WriteLine($"Variable object: {BasicTypes.obj2}");
 			Console.WriteLine("-------------------------------" + "\n");
 
-			Console.WriteLine("Minimum value: {0}", int.MinValue);
-			Console.WriteLine("Maximum value: {0}", int.MaxValue);
-			Console.WriteLine("Minimum value: {0}", long.MinValue);
-			Console.WriteLine("Maximum value: {0}", long.MaxValue);
-			Console.WriteLine("Minimum value: {0}", float.MinValue);
-			Console.WriteLine("Maximum value: {0}", float.MaxValue);
-			Console.WriteLine("Minimum value: {0}", double.MinValue);
-			Console.WriteLine("Maximum value: {0}", double.MaxValue);
-			Console.WriteLine("Minimum value: {0}", decimal.MinValue);
-			Console.WriteLine("Maximum value: {0}", decimal.MaxValue);
+			Console.WriteLine("Minimum value of an integer: {0}", int.MinValue);
+			Console.WriteLine("Maximum value of an integer: {0}", int.MaxValue);
+			Console.WriteLine("Minimum value of an long: {0}", long.MinValue);
+			Console.WriteLine("Maximum value of an long: {0}", long.MaxValue);
+			Console.WriteLine("Minimum value of an float: {0}", float.MinValue);
+			Console.WriteLine("Maximum value of an float: {0}", float.MaxValue);
+			Console.WriteLine("Minimum value of an double: {0}", double.MinValue);
+			Console.WriteLine("Maximum value of an double: {0}", double.MaxValue);
+			Console.WriteLine("Minimum value of an decimal: {0}", decimal.MinValue);
+			Console.WriteLine("Maximum value of an decimal: {0}", decimal.MaxValue);
 			Console.WriteLine("-----------------------------------------" + "\n");
 
 			Console.WriteLine("Implicit casting and casting: ");
@@ -64,9 +65,37 @@ namespace ConsoleApp_Training_CSharp {
 			Console.WriteLine("-----------------------------------------" + "\n");
 
 			Triangulo t2 = new Triangulo();
-			t2.Area(out double area2, 10, 10, 5);
+			t2.Area(out double area2, 6, 8, 10);
 			Console.WriteLine($"Area de um triangulo qualquer: {area2.ToString("F2", CultureInfo.InvariantCulture)}");
-			Console.WriteLine("-----------------------------------------" + "\n");			
-		}
+			Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Entre com os dados do produto: ");
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+            Console.Write("Preço: ");
+            double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.Write("Quantidade: ");
+            int qte = int.Parse(Console.ReadLine());
+            int id = 1;
+
+            Produto p = new Produto(id, nome, preco, qte);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados do produto: " + p);
+
+            Console.WriteLine();
+            Console.WriteLine("Digite o número de produtos a serem adicionados ao estoque: ");
+            qte = int.Parse(Console.ReadLine());
+            p.AdicinarProduto(qte);
+
+            Console.WriteLine();
+            Console.WriteLine("Digite o número de produtos a serem removidos do estoque: ");
+            qte = int.Parse(Console.ReadLine());
+            p.RemoverProduto(qte);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + p);
+            Console.WriteLine("-----------------------------------------" + "\n");
+        }
 	}
 }

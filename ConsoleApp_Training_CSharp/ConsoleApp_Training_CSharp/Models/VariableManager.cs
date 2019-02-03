@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Globalization;
 
-namespace ConsoleApp_Training_CSharp {
+namespace ConsoleApp_Training_CSharp.Models
+{
 	public class VariableManager {
 		static string produto1 = "Computador";
 		static string produto2 = "Mesa de escritório";
