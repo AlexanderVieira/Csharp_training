@@ -2,7 +2,7 @@
 
 namespace ConsoleApp_Training_CSharp.Models
 {
-    public class Triangulo {
+    public class Triangle {
 		public double A;
 		public double B;
 		public double C;

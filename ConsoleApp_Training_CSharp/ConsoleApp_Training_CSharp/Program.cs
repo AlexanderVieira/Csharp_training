@@ -59,12 +59,12 @@ namespace ConsoleApp_Training_CSharp {
 			Console.WriteLine("Volume da circunferência: " + volumeCirc.ToString("F3"));
 			Console.WriteLine("-----------------------------------------" + "\n");
 
-			Triangulo t1 = new Triangulo();
+			Triangle t1 = new Triangle();
 			t1.Area(out double area1, 3, 4, 5);
 			Console.WriteLine($"Area de um triangulo qualquer: {area1}");
 			Console.WriteLine("-----------------------------------------" + "\n");
 
-			Triangulo t2 = new Triangulo();
+			Triangle t2 = new Triangle();
 			t2.Area(out double area2, 6, 8, 10);
 			Console.WriteLine($"Area de um triangulo qualquer: {area2.ToString("F2", CultureInfo.InvariantCulture)}");
 			Console.WriteLine("-----------------------------------------" + "\n");
@@ -78,7 +78,7 @@ namespace ConsoleApp_Training_CSharp {
             int qte = int.Parse(Console.ReadLine());
             int id = 1;
 
-            Produto p = new Produto(id, nome, preco, qte);
+            Product p = new Product(id, nome, preco, qte);
 
             Console.WriteLine();
             Console.WriteLine("Dados do produto: " + p);
@@ -96,6 +96,54 @@ namespace ConsoleApp_Training_CSharp {
             Console.WriteLine();
             Console.WriteLine("Dados atualizados: " + p);
             Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Entendendo Vetores.");
+            Console.WriteLine("Entre com a quantidade de alturas: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Entre com os valores das alturas: ");
+            double[] vect = new double[n];
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine($"Altura {i + 1}");
+                vect[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            }
+
+            double sum = 0.0;
+            for (int i = 0; i < n; i++)
+            {
+                sum += vect[i];
+            }
+
+            double avg = sum / n;
+            Console.WriteLine("MÉDIA DA ALTURA: " + avg.ToString("F2"), CultureInfo.InvariantCulture);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Exemplo 2");
+            Console.WriteLine("Entre com a quantidade de produtos: ");
+            n = int.Parse(Console.ReadLine());
+            Product[] vet = new Product[n];
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("Digite o nome do produto: ");
+                string name = Console.ReadLine();
+                Console.Write("Digite o preço do produto: ");
+                double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                vet[i] = new Product {
+                    Id = 1,
+                    Nome = name,
+                    Preco = price,
+                    Quantidade = 1
+                };
+            }
+
+            sum = 0.0;
+            for (int i = 0; i < n; i++)
+            {
+                sum += vet[i].Preco;
+            }
+
+            avg = sum / n;
+            Console.WriteLine("MÉDIA DO PREÇO: " + avg.ToString("F2", CultureInfo.InvariantCulture));
         }
 	}
 }
