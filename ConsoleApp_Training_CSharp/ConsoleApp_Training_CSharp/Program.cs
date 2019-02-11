@@ -66,7 +66,8 @@ namespace ConsoleApp_Training_CSharp {
 
 			Triangle t2 = new Triangle();
 			t2.Area(out double area2, 6, 8, 10);
-			Console.WriteLine($"Area de um triangulo qualquer: {area2.ToString("F2", CultureInfo.InvariantCulture)}");
+			Console.WriteLine($"Area de um triangulo qualquer: " 
+                + $"{area2.ToString("F2", CultureInfo.InvariantCulture)}");
 			Console.WriteLine("-----------------------------------------" + "\n");
 
             Console.WriteLine("Entre com os dados do produto: ");
@@ -105,7 +106,8 @@ namespace ConsoleApp_Training_CSharp {
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine($"Altura {i + 1}");
-                vect[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                vect[i] = double.Parse(Console.ReadLine(), 
+                                       CultureInfo.InvariantCulture);
             }
 
             double sum = 0.0;
@@ -115,19 +117,23 @@ namespace ConsoleApp_Training_CSharp {
             }
 
             double avg = sum / n;
-            Console.WriteLine("MÉDIA DA ALTURA: " + avg.ToString("F2"), CultureInfo.InvariantCulture);
+            Console.WriteLine("MÉDIA DAS ALTURAS: " 
+                + avg.ToString("F2"), CultureInfo.InvariantCulture);
             Console.WriteLine("-----------------------------------------" + "\n");
 
             Console.WriteLine("Exemplo 2");
             Console.WriteLine("Entre com a quantidade de produtos: ");
             n = int.Parse(Console.ReadLine());
+
             Product[] vet = new Product[n];
+
             for (int i = 0; i < n; i++)
             {
                 Console.Write("Digite o nome do produto: ");
                 string name = Console.ReadLine();
                 Console.Write("Digite o preço do produto: ");
-                double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                double price = double.Parse(Console.ReadLine(), 
+                                            CultureInfo.InvariantCulture);
                 vet[i] = new Product {
                     Id = 1,
                     Nome = name,
@@ -143,7 +149,198 @@ namespace ConsoleApp_Training_CSharp {
             }
 
             avg = sum / n;
-            Console.WriteLine("MÉDIA DO PREÇO: " + avg.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("MÉDIA DOS PREÇOS: " 
+                + avg.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Sintaxe alternativa switch-case");
+            Console.WriteLine("Digite um número: ");
+            x = int.Parse(Console.ReadLine());
+            string day = null;
+
+            switch (x)
+            {
+                case 1:
+                    day = "Sunday";
+                    break;
+                case 2:
+                    day = "Monday";
+                    break;
+                case 3:
+                    day = "Tuesday";
+                    break;
+                case 4:
+                    day = "Wednesday";
+                    break;
+                case 5:
+                    day = "Thursday";
+                    break;
+                case 6:
+                    day = "Friday";
+                    break;
+                case 7:
+                    day = "Saturday";
+                    break;
+                default:
+                    day = "Invalid value";
+                    break;
+            }
+
+            Console.WriteLine("Day: " + day);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Expressão condicional ternária: ");
+            preco = 34.5;
+            var desconto = (preco < 20.00) ? preco * 0.1 : preco * 0.05;
+            Console.Write("Desconto: " + desconto.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("-----------------------------------------" + "\n");
+            Console.WriteLine();
+            Console.WriteLine("Funções Interessantes para String");
+            string original = "abcde FGHIJ ABC abc DEFG  ";
+            var s1 = original.ToUpper();
+            var s2 = original.ToLower();
+            var s3 = original.Trim();
+            int n1 = original.IndexOf("de");
+            int n2 = original.LastIndexOf("de");
+            var s4 = original.Substring(4);
+            var s5 = original.Substring(3, 5);
+            var s6 = original.Replace("a", "x");
+            var s7 = original.Replace("abc", "xy");
+            var b1 = string.IsNullOrEmpty(original);
+            var b2 = string.IsNullOrWhiteSpace(original);
+
+            Console.WriteLine("Original: -" + original + "-");
+            Console.WriteLine("ToUpper: -" + s1 + "-");
+            Console.WriteLine("ToLower: - " + s2 + "-");
+            Console.WriteLine("Trim: -" + s3 + "-");
+            Console.WriteLine("IndexOf('de'): " + n1);
+            Console.WriteLine("LastIndexOf('de'): " + n2);
+            Console.WriteLine("Substring(4): -" + s4 + "-");
+            Console.WriteLine("Substring(3,5): -" + s5 + "-");
+            Console.WriteLine("Replace('a', 'x'): -" + s6 + "-");
+            Console.WriteLine("Replace('abc', 'xy'): -" + s7 + "-");
+            Console.WriteLine("IsNullOrEmpty: " + b1);
+            Console.WriteLine("IsNullOrWhiteSpace: " + b2);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("DateTime: Representa um INSTANTE \n É um tipo valor(struct)");
+            Console.WriteLine();
+            Console.WriteLine("Exemplos de Construtores: ");
+            var d1 = new DateTime(2017, 4, 15);
+            var d2 = new DateTime(2017, 4, 15, 01, 21, 59);
+            var d3 = new DateTime(2017, 4, 15, 01, 21, 59, 350);
+
+            Console.WriteLine(d1);
+            Console.WriteLine(d2);
+            Console.WriteLine(d3);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Exemplos de Propriedades: ");
+            d1 = DateTime.Now;
+            d2 = DateTime.UtcNow;
+            d3 = DateTime.Today;
+            Console.WriteLine(d1);
+            Console.WriteLine(d2);
+            Console.WriteLine(d3);
+            Console.WriteLine();
+            DateTime dt = new DateTime(2001, 8, 15, 13, 45, 58, 275);
+            Console.WriteLine(dt);
+            Console.WriteLine("1) Date: " + dt.Date);
+            Console.WriteLine("2) Day: " + dt.Day);
+            Console.WriteLine("3) DayOfWeek: " + dt.DayOfWeek);
+            Console.WriteLine("4) DayOfYear: " + dt.DayOfYear);
+            Console.WriteLine("5) Hour: " + dt.Hour);
+            Console.WriteLine("6) Kind: " + dt.Kind);
+            Console.WriteLine("7) Millisecond: " + dt.Millisecond);
+            Console.WriteLine("8) Minute: " + dt.Minute);
+            Console.WriteLine("9) Month: " + dt.Month);
+            Console.WriteLine("10) Second: " + dt.Second);
+            Console.WriteLine("11) Ticks: " + dt.Ticks);
+            Console.WriteLine("12) TimeOfDay: " + dt.TimeOfDay);
+            Console.WriteLine("13) Year: " + dt.Year);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Exemplos de Parse: ");
+            d1 = DateTime.Parse("2017-04-28");
+            d2 = DateTime.Parse("2017-04-28 01:21:59");
+            d3 = DateTime.Parse("28/04/2017");
+            var d4 = DateTime.Parse("28/04/2017 01:21:59");
+            Console.WriteLine(d1);
+            Console.WriteLine(d2);
+            Console.WriteLine(d3);
+            Console.WriteLine(d4);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Exemplos de ParseExact: ");
+            d1 = DateTime.ParseExact("2017-04-28", "yyyy-MM-dd", 
+                                     CultureInfo.InvariantCulture);
+            d2 = DateTime.ParseExact("28/04/2017", "dd/MM/yyyy", 
+                                     CultureInfo.InvariantCulture);
+            Console.WriteLine(d1);
+            Console.WriteLine(d2);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("TimeSpan: Representa uma DURAÇÃO OU INTERVALO \n + É um tipo valor(struct)");
+            Console.WriteLine("Exemplos de Construtores: ");
+
+            var ts1 = new TimeSpan();
+            var ts2 = new TimeSpan(900000000L);
+            var ts3 = new TimeSpan(2, 11, 21);
+            var ts4 = new TimeSpan(1, 2, 11, 21);
+            var ts5 = new TimeSpan(1, 2, 11, 21, 333);
+            Console.WriteLine(ts1);
+            Console.WriteLine(ts2);
+            Console.WriteLine(ts3);
+            Console.WriteLine(ts4);
+            Console.WriteLine(ts5);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine();
+            Console.WriteLine("Exemplos de Propriedades: ");
+            var ts6 = new TimeSpan(0, 1, 30);
+            Console.WriteLine(ts6);
+            Console.WriteLine(ts6.Ticks);
+            Console.WriteLine();
+
+            TimeSpan ts = new TimeSpan(2, 3, 5, 7, 11);
+            Console.WriteLine(ts);
+            Console.WriteLine("Days: " + ts.Days);
+            Console.WriteLine("Hours: " + ts.Hours);
+            Console.WriteLine("Minutes: " + ts.Minutes);
+            Console.WriteLine("Milliseconds: " + ts.Milliseconds);
+            Console.WriteLine("Seconds: " + ts.Seconds);
+            Console.WriteLine("Ticks: " + ts.Ticks);
+            Console.WriteLine("TotalDays: " + ts.TotalDays);
+            Console.WriteLine("TotalHours: " + ts.TotalHours);
+            Console.WriteLine("TotalMinutes: " + ts.TotalMinutes);
+            Console.WriteLine("TotalSeconds: " + ts.TotalSeconds);
+            Console.WriteLine("TotalMilliseconds: " + ts.TotalMilliseconds);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Exemplos de Métodos From: ");
+            ts1 = TimeSpan.FromDays(1.5);
+            ts2 = TimeSpan.FromHours(1.5);
+            ts3 = TimeSpan.FromMinutes(1.5);
+            ts4 = TimeSpan.FromSeconds(1.5);
+            ts5 = TimeSpan.FromMilliseconds(1.5);
+            ts6 = TimeSpan.FromTicks(900000000L);
+            Console.WriteLine(ts1);
+            Console.WriteLine(ts2);
+            Console.WriteLine(ts3);
+            Console.WriteLine(ts4);
+            Console.WriteLine(ts5);
+            Console.WriteLine(ts6);
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.WriteLine("Exemplos de Operações: ");
+            ts1 = new TimeSpan(1, 30, 10);
+            ts2 = new TimeSpan(0, 10, 5);
+            var soma = ts1.Add(ts2);
+            var dif = ts1.Subtract(ts2);            
+            Console.WriteLine(ts1);
+            Console.WriteLine(ts2);
+            Console.WriteLine(sum);
+            Console.WriteLine(dif);         
         }
 	}
 }
