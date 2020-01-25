@@ -1,4 +1,5 @@
 ﻿using ConsoleApp_Training_CSharp.Models;
+using ConsoleApp_Training_CSharp.Models.Enums;
 using System;
 using System.Globalization;
 
@@ -130,13 +131,13 @@ namespace ConsoleApp_Training_CSharp {
             for (int i = 0; i < n; i++)
             {
                 Console.Write("Digite o nome do produto: ");
-                string name = Console.ReadLine();
+                nome = Console.ReadLine();
                 Console.Write("Digite o preço do produto: ");
                 double price = double.Parse(Console.ReadLine(), 
                                             CultureInfo.InvariantCulture);
                 vet[i] = new Product {
                     Id = 1,
-                    Nome = name,
+                    Nome = nome,
                     Preco = price,
                     Quantidade = 1
                 };
@@ -340,6 +341,46 @@ namespace ConsoleApp_Training_CSharp {
             Console.WriteLine(ts2);
             Console.WriteLine(sum);
             Console.WriteLine(dif);         
+            Console.WriteLine("-----------------------------------------" + "\n");
+
+            Console.Write("Entre com o nome do Departamento:");
+            string deptName = Console.ReadLine();
+            Console.WriteLine("Entre com os dados do Desenvolvedor: ");
+            Console.Write("Nome: ");
+            string name = Console.ReadLine();
+            Console.Write("Level: (Junior/MidLevel/Senior): ");
+            DeveloperLevel level = (DeveloperLevel) Enum.Parse(typeof(DeveloperLevel), Console.ReadLine());
+            Console.Write("salário Base: ");
+            double baseSalary = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            var dept = new Department(deptName);
+            var developer = new Developer(name, level, baseSalary, dept);
+
+            Console.WriteLine("Quantos contratos para este trabalhador? ");
+            n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Entre #{i} dado do contrato: ");
+                Console.WriteLine("Data (DD/MM/YYYY): ");
+                DateTime date = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine("Valor por hora: ");
+                double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.WriteLine("Duração (Horas): ");
+                int hour = int.Parse(Console.ReadLine());
+                var contract = new HourContract(date, valuePerHour, hour);
+                developer.AddContract(contract);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Entre com mês e ano para calcular a renda (MM/YYYY): ");
+            string monthAndYear = Console.ReadLine();
+            int month = int.Parse(monthAndYear.Substring(0, 2));
+            int year = int.Parse(monthAndYear.Substring(3));
+            Console.WriteLine("Nome: " + developer.Name);
+            Console.WriteLine("Departamento: " + developer.Department.Name);
+            Console.WriteLine("Renda: " + monthAndYear + ": " + developer.Income(year, month).ToString("F2", CultureInfo.InvariantCulture));
         }
+        
 	}
 }
